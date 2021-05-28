@@ -1,16 +1,18 @@
 package main
 
-import "fmt"
+const englishHelloPrefix = "Hello,"
+const chineseHelloPrefix = "你好,"
 
-const helloPrefix = "Hello,"
+// func main() {
+// 	fmt.Println(miao("miao"))
+// }
 
-func main() {
-	fmt.Println(miao("miao"))
-}
-
-func miao(name string) string {
+func miao(name string, language string) string {
 	if name == "" {
 		name = "World"
 	}
-	return helloPrefix + name
+	if language == "chinese" {
+		return chineseHelloPrefix + name
+	}
+	return englishHelloPrefix + name
 }

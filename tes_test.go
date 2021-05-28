@@ -13,13 +13,18 @@ func TestMiao(t *testing.T) {
 	}
 
 	t.Run("saying hello people", func(t *testing.T) {
-		got := miao("chris")
+		got := miao("chris", "")
 		want := "Hello,chris"
 		assertCorrectMessage(t, got, want)
 	})
 	t.Run("say hello world when an empty string is supplied", func(t *testing.T) {
-		got := miao("")
+		got := miao("", "")
 		want := "Hello,World"
+		assertCorrectMessage(t, got, want)
+	})
+	t.Run("in chinese", func(t *testing.T) {
+		got := miao("喵", "chinese")
+		want := "你好,喵"
 		assertCorrectMessage(t, got, want)
 	})
 }
