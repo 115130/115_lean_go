@@ -9,5 +9,8 @@ func main() {
 }
 
 func miao(name string) string {
+	if name == "" {
+		name = "World"
+	}
 	return helloPrefix + name
 }
