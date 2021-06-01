@@ -1,8 +1,51 @@
 package main
 
 import (
+	"reflect"
+	"testGo/array"
 	"testing"
 )
+
+func TestSumAll(t *testing.T) {
+
+	got := array.SumAll([]int{1, 2}, []int{0, 9})
+	want := []int{3, 9}
+
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v want %v", got, want)
+	}
+}
+
+func TestSum(t *testing.T) {
+	assertCorrectMessage := func(t *testing.T, got, want int, number []int) {
+		t.Helper()
+		if got != want {
+			t.Errorf("got %d want %d given ,%v", got, want, number)
+		}
+	}
+	t.Run("测试", func(t *testing.T) {
+		numbers := []int{1, 2, 3, 4, 5}
+
+		got := array.Sum(numbers)
+		want := 15
+		assertCorrectMessage(t, got, want, numbers)
+	})
+	t.Run("测试", func(t *testing.T) {
+		numbers := []int{1, 2, 3}
+
+		got := array.Sum(numbers)
+		want := 6
+		assertCorrectMessage(t, got, want, numbers)
+	})
+	t.Run("测试", func(t *testing.T) {
+		numbers := []int{0}
+
+		got := array.Sum(numbers)
+		want := 0
+		assertCorrectMessage(t, got, want, numbers)
+	})
+
+}
 
 func TestMiao(t *testing.T) { //普通测试
 	assertCorrectMessage := func(t *testing.T, got, want string) {
