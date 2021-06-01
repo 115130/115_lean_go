@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestMiao(t *testing.T) {
+func TestMiao(t *testing.T) { //普通测试
 	assertCorrectMessage := func(t *testing.T, got, want string) {
 		t.Helper()
 		if got != want {
@@ -27,4 +27,25 @@ func TestMiao(t *testing.T) {
 		want := "你好,喵"
 		assertCorrectMessage(t, got, want)
 	})
+}
+
+func BenchmarkRepeat(b *testing.B) { //基准测试 可以测试速度
+	for i := 0; i < b.N; i++ {
+		Repeat("a")
+	}
+}
+func BenchmarkRepeat0(b *testing.B) { //基准测试
+	for i := 0; i < b.N; i++ {
+		TestArray1()
+	}
+}
+func BenchmarkRepeat1(b *testing.B) { //基准测试
+	for i := 0; i < b.N; i++ {
+		TestArray()
+	}
+}
+func BenchmarkRepeat2(b *testing.B) { //基准测试
+	for i := 0; i < b.N; i++ {
+		TestMap()
+	}
 }
