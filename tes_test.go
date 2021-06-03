@@ -15,6 +15,23 @@ func TestSumAll(t *testing.T) {
 		t.Errorf("got %v want %v", got, want)
 	}
 }
+func TestSumAllTails(t *testing.T) {
+
+	got := array.SumAllTails([]int{1, 2}, []int{0, 9})
+	want := []int{2, 9}
+
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v want %v", got, want)
+	}
+}
+
+func Test1(t *testing.T) {
+
+	l := []int{1: 9}
+	for i, v := range l {
+		t.Error(i, v)
+	}
+}
 
 func TestSum(t *testing.T) {
 	assertCorrectMessage := func(t *testing.T, got, want int, number []int) {
@@ -90,5 +107,20 @@ func BenchmarkRepeat1(b *testing.B) { //基准测试
 func BenchmarkRepeat2(b *testing.B) { //基准测试
 	for i := 0; i < b.N; i++ {
 		TestMap()
+	}
+}
+
+func TestPerimeter(t *testing.T) {
+	got := Perimeter(Rectangle{10, 10})
+	want := 40.0
+	if got != want {
+		t.Error("got是 ", got, " want是", want)
+	}
+}
+func TestArea(t *testing.T) {
+	got := Area(Rectangle{10, 10})
+	want := 100.0
+	if got != want {
+		t.Error("got是 ", got, " want是", want)
 	}
 }
