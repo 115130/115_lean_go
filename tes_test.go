@@ -3,6 +3,7 @@ package main
 import (
 	"reflect"
 	"testGo/array"
+	wr "testGo/wallet"
 	"testing"
 )
 
@@ -122,5 +123,15 @@ func TestArea(t *testing.T) {
 	want := 100.0
 	if got != want {
 		t.Error("got是 ", got, " want是", want)
+	}
+}
+
+func TestWallet(t *testing.T) {
+	wallet := wr.Wallet{}
+	wallet.Deposit(10)
+	got := wallet.Balance()
+	want := wr.Bitcion(10)
+	if got != want {
+		t.Errorf("got是 %s ，want 是 %s", got, want)
 	}
 }

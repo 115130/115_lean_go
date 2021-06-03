@@ -51,9 +51,9 @@ func TestMap() {
 }
 
 func TestArray() {
-	var lists []int
+	// var lists []int
 	for i := 0; i < MAX; i++ {
-		lists = append(lists, i)
+		// lists = append(lists, i)
 	}
 }
 
