@@ -118,6 +118,7 @@ func TestPerimeter(t *testing.T) {
 		t.Error("got是 ", got, " want是", want)
 	}
 }
+
 func TestArea(t *testing.T) {
 	got := Area(Rectangle{10, 10})
 	want := 100.0
